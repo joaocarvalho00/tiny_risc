@@ -9,13 +9,13 @@ module tiny_risc_regfile
     input  logic                            clk,
     input  logic                            rst,
 
-    input  wr_rd_enable                     enable,
+    input  wr_rd_enable                     i_enable,
 
-    input  logic [        P_BASE_WIDTH-1:0] wr_data,
-    input  logic [$clog2(P_BASE_WIDTH)-1:0] wr_addr,
+    input  logic [        P_BASE_WIDTH-1:0] i_wr_data,
+    input  logic [$clog2(P_BASE_WIDTH)-1:0] i_wr_addr,
 
-    input  logic [$clog2(P_BASE_WIDTH)-1:0] rd_addr,
-    output logic [        P_BASE_WIDTH-1:0] rd_data
+    input  logic [$clog2(P_BASE_WIDTH)-1:0] i_rd_addr,
+    output logic [        P_BASE_WIDTH-1:0] o_rd_data
 );
 
     logic [P_REGFILE_DEPTH-1:0] regs [P_BASE_WIDTH-1:0];
@@ -28,13 +28,13 @@ module tiny_risc_regfile
         end
         else begin
             // ** Write **
-            if (enable == WRITE) begin
-                regs[wr_addr] <= wr_data;
-                rd_data       <= {P_BASE_WIDTH{1'b0}};
+            if (i_enable == WRITE) begin
+                regs[wr_addr] <= i_wr_data;
+                o_rd_data       <= {P_BASE_WIDTH{1'b0}};
             end
             // ** Read **
-            if (enable == READ) begin
-                rd_data       <= regs[rd_addr];
+            if (i_enable == READ) begin
+                o_rd_data       <= regs[i_wr_addr];
             end
         end
     end

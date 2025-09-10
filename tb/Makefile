@@ -8,6 +8,7 @@ SRC_DIR = /home/joaocarvalho00/Projects/tiny_risc/src
 
 VERILOG_SOURCES += $(SRC_DIR)/tiny_risc_pkg.sv
 VERILOG_SOURCES += $(SRC_DIR)/tiny_risc_regfile.sv
+VERILOG_SOURCES += $(SRC_DIR)/tiny_risc_pc.sv
 VERILOG_SOURCES += $(SRC_DIR)/tiny_risc.sv
 
 # TOPLEVEL is the name of the toplevel module in your Verilog or VHDL file
