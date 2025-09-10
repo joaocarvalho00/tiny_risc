@@ -1,4 +1,7 @@
-module cpu
+module tiny_risc
+#(
+    parameter P_BASE_WIDTH = 32
+)
 (
     input  logic       clk,
     input  logic       rst,

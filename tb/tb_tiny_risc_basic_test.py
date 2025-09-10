@@ -1,11 +1,10 @@
 import cocotb
 from cocotb.clock import Clock
-from cocotb.triggers import FallingEdge, Timer, RisingEdge
+from cocotb.triggers import Timer, RisingEdge
 
 
 async def generate_clock(dut):
     """Generate clock pulses."""
-
     initial_delay = 1
     await Timer(initial_delay, units="ns")
 
@@ -13,6 +12,7 @@ async def generate_clock(dut):
     await cocotb.start(c.start())
 
 async def reset_dut(reset_n, duration_ns):
+    """Reset pulse."""
     reset_n.value = 0
     await Timer(duration_ns, units="ns")
     reset_n.value = 1
