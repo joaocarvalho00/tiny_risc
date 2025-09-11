@@ -9,7 +9,7 @@ module tiny_risc_regfile
     input  logic                            clk,
     input  logic                            rst,
 
-    input  wr_rd_enable                     i_enable,
+    input  t_wr_rd_enable                   i_enable,
 
     input  logic [        P_BASE_WIDTH-1:0] i_wr_data,
     input  logic [$clog2(P_BASE_WIDTH)-1:0] i_wr_addr,

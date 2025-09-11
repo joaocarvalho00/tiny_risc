@@ -2,3 +2,4 @@ tb/sim_build/*
 tb/results.xml
 tb/dump.vcd
 tb/__pycache__/*
+tb/dump.vcd
